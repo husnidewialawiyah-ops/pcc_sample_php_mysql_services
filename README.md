@@ -104,11 +104,11 @@ API hanya membuat tabel jika belum tersedia. Pengisian data DummyJSON dilakukan 
 
 | Service | URL atau host |
 | --- | --- |
-| API PHP melalui Caddy | http://localhost:8080 |
-| phpMyAdmin | http://localhost:8081 |
-| MySQL dari host | `localhost:3306` |
-| RabbitMQ AMQP dari host | `localhost:5672` |
-| RabbitMQ Management | http://localhost:15672 |
+| API PHP melalui Caddy | http://localhost:8086 |
+| phpMyAdmin | http://localhost:8085 |
+| MySQL dari host | `localhost:3308` |
+| RabbitMQ AMQP dari host | `localhost:5674` |
+| RabbitMQ Management | http://localhost:15674 |
 
 Untuk koneksi antar-container, gunakan host berikut:
 
@@ -145,9 +145,9 @@ Endpoint `GET /products` mendukung:
 Contoh:
 
 ```text
-GET http://localhost:8080/products?limit=10&skip=0&sortBy=price&order=desc
-GET http://localhost:8080/products?q=phone
-GET http://localhost:8080/products/category/smartphones
+GET http://localhost:8086/products?limit=10&skip=0&sortBy=price&order=desc
+GET http://localhost:8086/products?q=phone
+GET http://localhost:8086/products/category/smartphones
 ```
 
 ### Contoh Tambah Produk
@@ -186,7 +186,7 @@ curl -X DELETE http://localhost:8080/products/1
 Jalankan service, lalu panggil endpoint berikut:
 
 ```http
-GET http://localhost:8080/login
+GET http://localhost:8086/login
 ```
 
 Response berisi `secret`, `account`, `issuer`, `otp_auth_url`, dan `qr_code`.
@@ -228,7 +228,7 @@ session token untuk membatasi endpoint produk.
 
 ## Login phpMyAdmin
 
-Buka `http://localhost:8081`, lalu gunakan:
+Buka `http://localhost:8085`, lalu gunakan:
 
 - **Server**: `mysql`
 - **Username**: nilai `MYSQL_USER` atau `root`
