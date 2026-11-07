@@ -42,6 +42,11 @@ function registerApiRoutes(ProductController $controller, AuthController $authCo
     if ($method === 'GET' && ($segments[1] ?? '') === 'category-list') {
         $controller->categoryList();
     }
+        // GET /products/search?q=phone - pencarian produk.
+    if ($method === 'GET' && ($segments[1] ?? '') === 'search') {
+        $controller->index();
+        return;
+    }
     // GET /products/category/{category} - produk berdasarkan kategori.
     if ($method === 'GET' && ($segments[1] ?? '') === 'category' && isset($segments[2])) {
         $_GET['category'] = $segments[2];

@@ -77,8 +77,13 @@ final class ProductController
         $where = [];
         $parameters = [];
         if ($search !== '') {
-            $where[] = '(title LIKE :search OR description LIKE :search OR brand LIKE :search)';
-            $parameters[':search'] = '%' . $search . '%';
+        $where[] = '(title LIKE :search_title OR description LIKE :search_description OR brand LIKE :search_brand)';
+
+        $keyword = '%' . $search . '%';
+
+        $parameters[':search_title'] = $keyword;
+        $parameters[':search_description'] = $keyword;
+        $parameters[':search_brand'] = $keyword;
         }
         if ($category !== '') {
             $where[] = 'category = :category';
